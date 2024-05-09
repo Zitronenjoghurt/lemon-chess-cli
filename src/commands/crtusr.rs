@@ -10,6 +10,7 @@ pub struct User {
     pub name: String,
     pub display_name: String,
     pub created_stamp: u64,
+    pub permission: String,
 }
 
 pub async fn execute(
@@ -40,6 +41,7 @@ pub async fn execute(
         name: name.clone(),
         display_name: name,
         created_stamp: timestamp_now_nanos(),
+        permission: "User".to_string(),
     };
 
     collection.insert_one(user, None).await?;
